@@ -1,0 +1,346 @@
+
+tcp: system execution failed.
+Following is the set of recorded exceptions:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+SQLITE_MODIFY_STATEMENT
+                    execute_internal @3    is_compiled:
+<0000000002F11A58>  (From SQLITE_STATEMENT)
+                                           Precondition violated.        Fail
+-------------------------------------------------------------------------------
+SQLITE_MODIFY_STATEMENT
+                    execute @6             
+<0000000002F11A58>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+BD                  createdatabase @20                                  
+<0000000002F11200>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+APPLICATION         make_serveur @21                                    
+<0000000002F10420>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+APPLICATION         root's creation                                     
+<0000000002F10420>                         Routine failure.              Exit
+-------------------------------------------------------------------------------
+
+tcp: system execution failed.
+Following is the set of recorded exceptions:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+NETWORK_STREAM_SOCKET
+                    c_read_stream          WSAECONNRESET: Connection reset by peer.:
+<0000000002DF0CD8>  (From SOCKET)          Developer exception.          Fail
+-------------------------------------------------------------------------------
+NETWORK_STREAM_SOCKET
+                    c_read_stream          
+<0000000002DF0CD8>  (From SOCKET)          Routine failure.              Fail
+-------------------------------------------------------------------------------
+NETWORK_STREAM_SOCKET
+                    read_to_managed_pointer @7
+<0000000002DF0CD8>  (From SOCKET)          Routine failure.              Fail
+-------------------------------------------------------------------------------
+NETWORK_STREAM_SOCKET
+                    read_integer_32 @2     
+<0000000002DF0CD8>  (From SOCKET)          Routine failure.              Fail
+-------------------------------------------------------------------------------
+APPLICATION         make_serveur @20                                    
+<0000000002DF0420>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+APPLICATION         root's creation                                     
+<0000000002DF0420>                         Routine failure.              Exit
+-------------------------------------------------------------------------------
+
+tcp: system execution failed.
+Following is the set of recorded exceptions:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+SQLITE_MODIFY_STATEMENT
+                    execute_internal @3    is_compiled:
+<0000000002EB7680>  (From SQLITE_STATEMENT)
+                                           Precondition violated.        Fail
+-------------------------------------------------------------------------------
+SQLITE_MODIFY_STATEMENT
+                    execute @6             
+<0000000002EB7680>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+BD                  updatedatabase @5                                   
+<0000000002EB11A0>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+APPLICATION         make_serveur @22                                    
+<0000000002EB0420>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+APPLICATION         root's creation                                     
+<0000000002EB0420>                         Routine failure.              Exit
+-------------------------------------------------------------------------------
+
+tcp: system execution failed.
+Following is the set of recorded exceptions:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+NETWORK_STREAM_SOCKET
+                    c_put_stream           WSAECONNRESET: Connection reset by peer.:
+<0000000002D00CD8>  (From SOCKET)          Developer exception.          Fail
+-------------------------------------------------------------------------------
+NETWORK_STREAM_SOCKET
+                    c_put_stream           
+<0000000002D00CD8>  (From SOCKET)          Routine failure.              Fail
+-------------------------------------------------------------------------------
+NETWORK_STREAM_SOCKET
+                    put_managed_pointer @5 
+<0000000002D00CD8>  (From SOCKET)          Routine failure.              Fail
+-------------------------------------------------------------------------------
+NETWORK_STREAM_SOCKET
+                    put_integer_32 @3      
+<0000000002D00CD8>  (From SOCKET)          Routine failure.              Fail
+-------------------------------------------------------------------------------
+APPLICATION         make_serveur @24                                    
+<0000000002D00420>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+APPLICATION         root's creation                                     
+<0000000002D00420>                         Routine failure.              Exit
+-------------------------------------------------------------------------------
+
+tcp: system execution failed.
+Following is the set of recorded exceptions:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+NETWORK_STREAM_SOCKET
+                    c_put_stream           WSAECONNRESET: Connection reset by peer.:
+<0000000002E90CD8>  (From SOCKET)          Developer exception.          Fail
+-------------------------------------------------------------------------------
+NETWORK_STREAM_SOCKET
+                    c_put_stream           
+<0000000002E90CD8>  (From SOCKET)          Routine failure.              Fail
+-------------------------------------------------------------------------------
+NETWORK_STREAM_SOCKET
+                    put_managed_pointer @5 
+<0000000002E90CD8>  (From SOCKET)          Routine failure.              Fail
+-------------------------------------------------------------------------------
+NETWORK_STREAM_SOCKET
+                    put_integer_32 @3      
+<0000000002E90CD8>  (From SOCKET)          Routine failure.              Fail
+-------------------------------------------------------------------------------
+APPLICATION         make_serveur @24                                    
+<0000000002E90420>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+APPLICATION         root's creation                                     
+<0000000002E90420>                         Routine failure.              Exit
+-------------------------------------------------------------------------------
+
+tcp: system execution failed.
+Following is the set of recorded exceptions:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+NETWORK_STREAM_SOCKET
+                    c_put_stream           WSAECONNRESET: Connection reset by peer.:
+<0000000002E40CD8>  (From SOCKET)          Developer exception.          Fail
+-------------------------------------------------------------------------------
+NETWORK_STREAM_SOCKET
+                    c_put_stream           
+<0000000002E40CD8>  (From SOCKET)          Routine failure.              Fail
+-------------------------------------------------------------------------------
+NETWORK_STREAM_SOCKET
+                    put_managed_pointer @5 
+<0000000002E40CD8>  (From SOCKET)          Routine failure.              Fail
+-------------------------------------------------------------------------------
+NETWORK_STREAM_SOCKET
+                    put_integer_32 @3      
+<0000000002E40CD8>  (From SOCKET)          Routine failure.              Fail
+-------------------------------------------------------------------------------
+APPLICATION         make_serveur @24                                    
+<0000000002E40420>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+APPLICATION         root's creation                                     
+<0000000002E40420>                         Routine failure.              Exit
+-------------------------------------------------------------------------------
+
+tcp: system execution failed.
+Following is the set of recorded exceptions:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+SQLITE_QUERY_STATEMENT
+                    execute_new @1         is_compiled:
+<0000000002E55910>  (From SQLITE_STATEMENT)
+                                           Precondition violated.        Fail
+-------------------------------------------------------------------------------
+BD                  updatedatabase @5                                   
+<0000000002E511A0>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+APPLICATION         make_serveur @22                                    
+<0000000002E50420>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+APPLICATION         root's creation                                     
+<0000000002E50420>                         Routine failure.              Exit
+-------------------------------------------------------------------------------
+
+tcp: system execution failed.
+Following is the set of recorded exceptions:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+SQLITE_MODIFY_STATEMENT
+                    execute_internal @3    is_compiled:
+<0000000002ED504C>  (From SQLITE_STATEMENT)
+                                           Precondition violated.        Fail
+-------------------------------------------------------------------------------
+SQLITE_MODIFY_STATEMENT
+                    execute @6             
+<0000000002ED504C>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+BD                  updatedatabase @5                                   
+<0000000002ED11A0>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+APPLICATION         make_serveur @22                                    
+<0000000002ED0420>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+APPLICATION         root's creation                                     
+<0000000002ED0420>                         Routine failure.              Exit
+-------------------------------------------------------------------------------
+
+tcp: system execution failed.
+Following is the set of recorded exceptions:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+SQLITE_MODIFY_STATEMENT
+                    execute_with_arguments @1
+                                           is_compiled:
+<0000000002DE504C>                         Precondition violated.        Fail
+-------------------------------------------------------------------------------
+BD                  updatedatabase @5                                   
+<0000000002DE11A0>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+APPLICATION         make_serveur @22                                    
+<0000000002DE0420>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+APPLICATION         root's creation                                     
+<0000000002DE0420>                         Routine failure.              Exit
+-------------------------------------------------------------------------------
+
+tcp: system execution failed.
+Following is the set of recorded exceptions:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+SQLITE_MODIFY_STATEMENT
+                    execute_with_arguments @1
+                                           is_compiled:
+<0000000002EB378C>                         Precondition violated.        Fail
+-------------------------------------------------------------------------------
+BD                  updatedatabase @5                                   
+<0000000002EB11A0>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+APPLICATION         make_serveur @22                                    
+<0000000002EB0420>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+APPLICATION         root's creation                                     
+<0000000002EB0420>                         Routine failure.              Exit
+-------------------------------------------------------------------------------
+
+tcp: system execution failed.
+Following is the set of recorded exceptions:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+SQLITE_MODIFY_STATEMENT
+                    execute_with_arguments @1
+                                           is_compiled:
+<0000000002E04D1C>                         Precondition violated.        Fail
+-------------------------------------------------------------------------------
+BD                  updatedatabase @5                                   
+<0000000002E011A0>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+APPLICATION         make_serveur @22                                    
+<0000000002E00420>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+APPLICATION         root's creation                                     
+<0000000002E00420>                         Routine failure.              Exit
+-------------------------------------------------------------------------------
+
+tcp: system execution failed.
+Following is the set of recorded exceptions:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+SQLITE_MODIFY_STATEMENT
+                    execute_with_arguments @1
+                                           is_compiled:
+<0000000002E7537C>                         Precondition violated.        Fail
+-------------------------------------------------------------------------------
+BD                  updatedatabase @5                                   
+<0000000002E711A0>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+APPLICATION         make_serveur @22                                    
+<0000000002E70420>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+APPLICATION         root's creation                                     
+<0000000002E70420>                         Routine failure.              Exit
+-------------------------------------------------------------------------------
+
+tcp: system execution failed.
+Following is the set of recorded exceptions:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+SQLITE_QUERY_STATEMENT
+                    execute_new @1         is_compiled:
+<0000000002E056AC>  (From SQLITE_STATEMENT)
+                                           Precondition violated.        Fail
+-------------------------------------------------------------------------------
+BD                  updatedatabase @5                                   
+<0000000002E011A0>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+APPLICATION         make_serveur @22                                    
+<0000000002E00420>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+APPLICATION         root's creation                                     
+<0000000002E00420>                         Routine failure.              Exit
+-------------------------------------------------------------------------------
+
+tcp: system execution failed.
+Following is the set of recorded exceptions:
+
+-------------------------------------------------------------------------------
+Class / Object      Routine                Nature of exception           Effect
+-------------------------------------------------------------------------------
+NETWORK_STREAM_SOCKET
+                    c_put_stream           WSAECONNRESET: Connection reset by peer.:
+<0000000002E90CD8>  (From SOCKET)          Developer exception.          Fail
+-------------------------------------------------------------------------------
+NETWORK_STREAM_SOCKET
+                    c_put_stream           
+<0000000002E90CD8>  (From SOCKET)          Routine failure.              Fail
+-------------------------------------------------------------------------------
+NETWORK_STREAM_SOCKET
+                    put_managed_pointer @5 
+<0000000002E90CD8>  (From SOCKET)          Routine failure.              Fail
+-------------------------------------------------------------------------------
+NETWORK_STREAM_SOCKET
+                    put_integer_32 @3      
+<0000000002E90CD8>  (From SOCKET)          Routine failure.              Fail
+-------------------------------------------------------------------------------
+APPLICATION         make_serveur @24                                    
+<0000000002E90420>                         Routine failure.              Fail
+-------------------------------------------------------------------------------
+APPLICATION         root's creation                                     
+<0000000002E90420>                         Routine failure.              Exit
+-------------------------------------------------------------------------------

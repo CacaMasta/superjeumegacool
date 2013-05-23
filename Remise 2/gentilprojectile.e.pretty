@@ -1,0 +1,43 @@
+note
+	description: "[
+		Fait absolument rien pour l'instant
+	]"
+	author: "Samuel Forcier - David Lafrenière"
+	date: "25 mars 2013"
+	revision: "1.0"
+
+class
+	GENTILPROJECTILE
+
+inherit
+
+	PROJECTILE
+
+create
+	gentilprojectilemaker
+
+feature {NONE} -- Implementation
+
+	gentilprojectilemaker (l_megaman: MEGAMAN)
+		local
+			l_chemin_c: C_STRING
+			chemin_gentilprojectile: STRING
+		do
+			chemin_gentilprojectile := "projectile.bmp"
+			create l_chemin_c.make (chemin_gentilprojectile)
+			ptr := {RAPPER}.SDL_LoadBMP (l_chemin_c.item)
+			x := l_megaman.x + 55
+			y := l_megaman.y + 30
+			w := 26
+			h := 20
+		end
+
+note
+	copyright: "Copyright - Samuel Forcier - David Lafrenière"
+	licence: "GPL 3.0 (see http://www.gnu.org/licences/gpl-3.0.txt)"
+	source: "[
+		Samuel Forcier						David Lafrenière
+		Étudiant Cégep de Drummondville		Étudiant Cégep de Drummondville
+	]"
+
+end

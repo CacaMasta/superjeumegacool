@@ -1,0 +1,224 @@
+note
+	description: "[
+		Gêre l'affichage à l'écran du programme
+		Sert à gêrer l'afficher des divers sprites, gêrer les commandes au clavier et coordonner le programme de manière générale
+	]"
+	author: "Samuel Forcier - David Lafrenière"
+	date: "25 mars 2013"
+	revision: "1.0"
+
+class
+	AFFICHER
+
+create
+	make
+
+feature {NONE}
+
+	make
+		local
+			l_inutile: INTEGER_32
+			l_screen: POINTER
+			l_gamestate: BOOLEAN
+			l_titre: STRING
+			l_titre_c: C_STRING
+			l_event: POINTER
+			l_background: BACKGROUND
+			l_megaman: MEGAMAN
+			l_objet_score: SCORE
+			l_key: POINTER
+			l_keysym: POINTER
+			l_sym: INTEGER
+			l_gentilprojectile: GENTILPROJECTILE
+			l_mechantprojectile: MECHANTPROJECTILE
+			l_gprojectiles: LIST [GENTILPROJECTILE]
+			l_memoire: MEMORY
+			l_projectile_state: BOOLEAN
+			l_gprojectile_recent: GENTILPROJECTILE
+			l_bouge_gauche: BOOLEAN
+			l_bouge_droite: BOOLEAN
+			l_mega_saute: BOOLEAN
+			l_bool_tir: BOOLEAN
+			l_megaman_limite_gauche: BOOLEAN
+			l_megaman_limite_droite: BOOLEAN
+			l_reseau: RESEAU
+			l_x_backup: REAL
+			l_y_backup: REAL
+			l_enemy: ENEMY
+			l_mega_saute_anim: BOOLEAN
+			l_count: INTEGER
+		do
+			l_count := 0
+			create l_memoire
+			create {ARRAYED_LIST [GENTILPROJECTILE]} l_gprojectiles.make (0)
+			l_gamestate := true
+			l_titre := "Megaman Zombie Edition"
+			create l_titre_c.make (l_titre)
+			l_inutile := {RAPPER}.SDL_Init ({RAPPER}.SDL_INIT_VIDEO)
+			l_screen := {RAPPER}.SDL_SetVideoMode (840, 640, 32, {RAPPER}.SDL_SWSURFACE)
+			{RAPPER}.SDL_WM_SetCaption (l_titre_c.item, create {POINTER})
+			l_event := l_event.memory_calloc ({RAPPER}.sizeof_SDL_Event, 1)
+			create l_background.make
+			create l_megaman.fait
+			create l_objet_score.andhescores
+			create l_enemy.initialisation
+			from
+				l_gamestate := true
+			until
+				l_gamestate = false
+			loop
+				from
+				until
+					{RAPPER}.SDL_PollEvent (l_event) /= 1
+				loop
+					if {RAPPER}.get_type_from_SDL_Event (l_event) = {RAPPER}.SDL_KEYDOWN_const then
+						l_key := {RAPPER}.get_key_from_event (l_event)
+						l_keysym := {RAPPER}.get_keysym_from_keyboardevent (l_key)
+						l_sym := {RAPPER}.get_sym_from_keysym (l_keysym)
+						if l_sym = {RAPPER}.SDLK_RIGHT_const then
+							l_bouge_droite := true
+						end
+						if l_sym = {RAPPER}.SDLK_LEFT_const then
+							l_bouge_gauche := true
+						end
+						if l_sym = {RAPPER}.SDLK_SPACE_const then
+							l_bool_tir := true
+						end
+						if l_sym = {RAPPER}.SDLK_UP_const then
+							l_mega_saute := true
+						end
+					end
+					if {RAPPER}.get_type_from_SDL_Event (l_event) = {RAPPER}.SDL_KEYUP_const then
+						l_sym := {RAPPER}.get_sym_from_keysym (l_keysym)
+						if l_sym = {RAPPER}.SDLK_RIGHT_const then
+							l_bouge_droite := false
+						end
+						if l_sym = {RAPPER}.SDLK_LEFT_const then
+							l_bouge_gauche := false
+						end
+						if l_sym = {RAPPER}.SDLK_SPACE_const then
+							l_bool_tir := false
+						end
+						if l_sym = {RAPPER}.SDLK_UP_const then
+							l_mega_saute := false
+						end
+					end
+					if {RAPPER}.get_type_from_SDL_Event (l_event) = {RAPPER}.SDL_Quit_const then
+						l_gamestate := false
+					end
+				end
+					--projectile create
+				if l_projectile_state = false then
+					if l_bool_tir = true then
+						l_gprojectile_recent := create {GENTILPROJECTILE}.gentilprojectilemaker (l_megaman)
+						if l_megaman.l_direction_droite then
+							l_gprojectile_recent.assigne_direction_droite
+						else
+							l_gprojectile_recent.assigne_direction_gauche
+						end
+						l_gprojectiles.extend (l_gprojectile_recent)
+					end
+				end
+					--mega gauche droite haut
+				if l_mega_saute then
+					l_mega_saute_anim := true
+				end
+				if l_mega_saute_anim then
+					l_count := l_count + 1
+					l_megaman.megaman_saute (l_count)
+					if l_count = 20 then
+						l_mega_saute_anim := false
+						l_count := 0
+					end
+				end
+				if l_mega_saute_anim = false then
+					if l_megaman_limite_gauche = false then
+						if l_bouge_droite = true then
+							l_megaman.megaman_droite
+						end
+					end
+					if l_megaman_limite_droite = false then
+						if l_bouge_gauche = true then
+							l_megaman.megaman_gauche
+						end
+					end
+				end
+
+					--limites gauche et droite
+				if l_megaman.x >= 660 then
+					l_megaman_limite_gauche := true
+				else
+					l_megaman_limite_gauche := false
+				end
+				if l_megaman.x <= 70 then
+					l_megaman_limite_droite := true
+				else
+					l_megaman_limite_droite := false
+				end
+					--megastop
+				if l_bouge_droite = false and l_bouge_gauche = false and l_mega_saute_anim = false then
+					l_megaman.megaman_stop
+				end
+
+					--escape
+				if l_sym = {RAPPER}.SDLK_ESCAPE_const then
+					l_gamestate := false
+				end
+
+					--affiche les sprites
+				l_background.sprite_affiche (l_screen)
+				l_megaman.sprite_affiche (l_screen)
+				l_enemy.sprite_affiche (l_screen)
+
+					--gêre projectiles
+				if l_gprojectiles.is_empty = false then
+					from
+						l_gprojectiles.start
+					until
+						l_gprojectiles.exhausted
+					loop
+						l_gprojectiles.item.sprite_affiche (l_screen)
+						if l_gprojectiles.item.l_direction_projectile_droite = true then
+							l_gprojectiles.item.bouger_droite
+						else
+							l_gprojectiles.item.bouger_gauche
+						end
+						if l_gprojectiles.item.x >= 840 or l_gprojectiles.item.x <= 0 then
+							l_gprojectiles.remove
+						end
+						if not l_gprojectiles.exhausted then
+							l_gprojectiles.forth
+						end
+					end
+					l_projectile_state := true
+					check
+						l_gprojectile_recent /= Void
+					end
+					if l_gprojectile_recent.l_direction_projectile_droite = true then
+						if l_gprojectile_recent.x - l_megaman.x > 150 then
+							l_projectile_state := false
+						end
+					elseif l_megaman.x - l_gprojectile_recent.x > 60 then
+						l_projectile_state := false
+					end
+				end
+				l_inutile := {RAPPER}.SDL_Flip (l_screen)
+				l_memoire.full_collect
+				{RAPPER}.SDL_Delay (1)
+				l_objet_score.point := 1
+			end
+			create l_reseau.make_client (l_objet_score)
+			l_event.memory_free
+		end
+
+invariant
+
+note
+	copyright: "Copyright - Samuel Forcier - David Lafrenière"
+	licence: "GPL 3.0 (see http://www.gnu.org/licences/gpl-3.0.txt)"
+	source: "[
+		Samuel Forcier						David Lafrenière
+		Étudiant Cégep de Drummondville		Étudiant Cégep de Drummondville
+	]"
+
+end
